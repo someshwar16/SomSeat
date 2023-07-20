@@ -74,3 +74,9 @@ flutter run
 ![WhatsApp Image 2023-07-20 at 4 08 51 PM](https://github.com/someshwar16/SomSeat/assets/83568897/efb1a154-e5c1-4d93-bbda-2ba7d551625c)
 
 
+## Video 
+
+
+https://github.com/someshwar16/SomSeat/assets/83568897/da080f98-b01d-4678-b1f1-813f121ba8cc
+
+
