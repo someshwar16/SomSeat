@@ -24,27 +24,27 @@ class SelectedSeat extends StatelessWidget {
             builder: (context, seatProvider, child) {
               return (seatProvider.selectedSeat.isEmpty)
                   ? const Center(
-                    child:  Text(
+                      child: Text(
                         "No Seat Selected",
                         style: TextStyle(
                             fontSize: 24.0, fontWeight: FontWeight.bold),
                       ),
-                  )
+                    )
                   : Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Total Seat :- ${seatProvider.selectedSeat.length.toString()}",
+                              "Total Seat Selected :- ${seatProvider.selectedSeat.length.toString()}",
                               style: const TextStyle(
                                 fontSize: 16.0,
-                                fontWeight: FontWeight.normal,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10.0),
+                        const SizedBox(height: 20.0),
                         Expanded(
                           child: ListView.builder(
                               itemCount: seatProvider.selectedSeat.length,
@@ -53,7 +53,7 @@ class SelectedSeat extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 10.0),
                                   child: Card(
-                                    shape: ContinuousRectangleBorder(),
+                                    shape: const ContinuousRectangleBorder(),
                                     elevation: 1.0,
                                     child: Column(
                                       children: [

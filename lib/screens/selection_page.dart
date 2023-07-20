@@ -22,71 +22,74 @@ class _SelectionPageState extends State<SelectionPage> {
   final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-        child: FloatingActionButton.extended(
-          onPressed: (){
-            Navigator.of(context).push(CupertinoPageRoute(
-                builder: (context) => const SelectedSeat(),
-              ),);
-          },
-          label: const Text('Confirm Seat'),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          backgroundColor: selectedSeatColor,
-        ),
-      ),
-      appBar: AppBar(
-        title: const Text(
-          'Select Your Seat',
-          style: TextStyle(
-            fontSize: 24.0,
+    return WillPopScope(
+      onWillPop:() async => false,
+      child: Scaffold(
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+          child: FloatingActionButton.extended(
+            onPressed: (){
+              Navigator.of(context).push(CupertinoPageRoute(
+                  builder: (context) => const SelectedSeat(),
+                ),);
+            },
+            label: const Text('Confirm Seat'),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            backgroundColor: selectedSeatColor,
           ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: Column(
-          children: [
-            TextFormField(
-              controller: _searchController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: 'Search Seat No.',
-                prefixIcon: const Icon(Icons.search),
-                border: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
+        appBar: AppBar(
+          title: const Text(
+            'Select Your Seat',
+            style: TextStyle(
+              fontSize: 24.0,
+            ),
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _searchController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  hintText: 'Search Seat No.',
+                  prefixIcon: const Icon(Icons.search),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      _searchController.clear();
+                      SystemChannels.textInput.invokeMethod('TextInput.hide');  
+                      FocusScope.of(context).unfocus();
+                    },
+                    icon: const Icon(Icons.close),
                   ),
                 ),
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    _searchController.clear();
-                    SystemChannels.textInput.invokeMethod('TextInput.hide');  
-                    FocusScope.of(context).unfocus();
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 9,
+                  itemBuilder: (context, index) {
+                    return Builder(
+                        builder: (context) => LayoutWidget(
+                              index: index,
+                              searchBarText: _searchController.text,
+                            ));
                   },
-                  icon: const Icon(Icons.close),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 8.0,
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Builder(
-                      builder: (context) => LayoutWidget(
-                            index: index,
-                            searchBarText: _searchController.text,
-                          ));
-                },
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

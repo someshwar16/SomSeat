@@ -74,7 +74,7 @@ class LayoutWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 5),
                       child: SeatView(
                         seatIndex: 7 + index * 8,
-                        seatType: "S Upper",
+                        seatType: "S Lower",
                         searchBarText: searchBarText,
                       ),
                     )
@@ -146,7 +146,7 @@ class LayoutWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 5),
                       child: SeatView(
                         seatIndex: 8 + index * 8,
-                        seatType: "S Lower",
+                        seatType: "S Upper",
                         searchBarText: searchBarText,
                       ),
                     ),
