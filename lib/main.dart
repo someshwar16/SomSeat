@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:som_seat_selection/screens/selection_page.dart';
+//import 'package:som_seat_selection/screens/selection_page.dart';
 import 'package:som_seat_selection/provider/select_button_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:som_seat_selection/screens/splash_screen.dart';

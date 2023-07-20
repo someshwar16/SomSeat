@@ -33,8 +33,10 @@ class SelectedSeat extends StatelessWidget {
                   : Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            const Icon(Icons.confirmation_num_outlined , size: 30.0,),
+                            const SizedBox(width: 5.0,),
                             Text(
                               "Total Seat Selected :- ${seatProvider.selectedSeat.length.toString()}",
                               style: const TextStyle(
@@ -63,6 +65,7 @@ class SelectedSeat extends StatelessWidget {
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.w500),
                                         ),
+                                        const SizedBox(width: 5.0,),
                                         Text(
                                           "Seat No:- ${seatProvider.selectedSeat[index].seatNumber}",
                                           style: const TextStyle(
@@ -73,7 +76,7 @@ class SelectedSeat extends StatelessWidget {
                                     ),
                                   ),
                                 );
-                              }),
+                              }),     
                         ),
                       ],
                     );
